@@ -7,8 +7,8 @@ The Cons:
 - Does not have a wide range of library functions, you are just limited to few primary functions
 - Does not have STRINGS, aarrrghhh?! you have to manually make a character Array to store Strings.
 - No boolean datatype
-- No bound checking! if you have Array say, A[5] and you are trying to access A[7] the compiler will happily say "NO SYNTAX ERROR"
-  but it is problematic as the nonvalid indexes may be occupied by the system.
+- No bound checking! if you have Array say, A[5] and you are trying to access A[7] the code will compile without any warnings,
+  but it can be problematic as the non-valid indexes may be occupied by the system.
 - Lacks Exception Handling.
 
 The Pros:
