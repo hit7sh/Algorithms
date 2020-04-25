@@ -13,6 +13,7 @@
 using namespace std;
 /**
 This method sort a string in O(n) time.
+Assumption: Each index contains character in range ('a'<=st[i]<='z') or ('A'<=st[i]<='Z')
 I recently came across something called 'Count Sort'.
 It made me curious to implement on string, as each index has limited range values.
 Lemme explain briefly, traverse through string and increase the count of 
