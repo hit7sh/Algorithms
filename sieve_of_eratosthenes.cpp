@@ -15,7 +15,7 @@ int main()
     vector<bool>is_prime(n+1,true);
     for(i=2;i*i<=n;i++)
         if(is_prime[i])                 //Complexity: O(n*log(log(n)))
-            for(j=i+i;j<=n;j+=i)
+            for(j=i*i;j<=n;j+=i)
                 is_prime[j]=0;
 //-------------------------------------
     f1(i,n)
