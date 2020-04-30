@@ -41,21 +41,13 @@ int main() {
 	cin>>st;
 	stack<char>S;
 	unordered_map<char, char>M={{'{','}'},{'(',')'},{'<','>'},{'[',']'}};
-	char x=st[0];
-	
-	    flag=0;
-	for(char x: st){
+
+	for(char x: st)
 	    if(M.find(x)!=M.end())
 	        S.push(x);
-	    else if(S.empty() and (x=='}'||x==')'||x=='>'||x==']'))
-	        flag = 0;
-	    else{
-	        if(M[S.top()]==x)
+	    else if(!(S.empty()) and M[S.top()]==x)
 	            S.pop();
-	        else
-	            flag = 0;
-	    }
-	}
-	cout<<(flag?"YES":"NO");
+	            
+	cout<<(S.empty()?"YES":"NO");
 	return 0;
 }
