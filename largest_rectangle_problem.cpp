@@ -9,14 +9,14 @@ Output on a single line the area of the largest rectangle in the specified histo
 Remember that this rectangle must be aligned at the common base line.
 */
 
-
 ll i,n,h,ans=INT_MIN,lh,lp,A[100000];
 int main() {
     cin>>n;
 	f0(i,n)
 	    cin>>A[i];
+	A[n]=0;
 	stack<int>ps, hs;
-	f0(i,n){
+	f0(i,n+1){
 	    h=A[i];
 	    if(hs.empty() || h> hs.top())
 	    ps.push(i),hs.push(A[i]);
@@ -29,11 +29,6 @@ int main() {
 	        hs.push(h);
 	        ps.push(lp);
 	    }
-	}
-	while(!hs.empty()){
-	    lh=hs.top(),lp=ps.top();
-	    hs.pop(),ps.pop();
-	    ans=max(ans, lh*(n-lp));
 	}
 	cout<<ans<<endl;
 	return 0;
