@@ -43,10 +43,10 @@ int main() {
 	unordered_map<char, char>M={{'{','}'},{'(',')'},{'<','>'},{'[',']'}};
 
 	for(char x: st)
-	    if(M.find(x)!=M.end())
-	        S.push(x);
-	    else if(!(S.empty()) and M[S.top()]==x)
+              if(!(S.empty()) and M[S.top()]==x)
 	            S.pop();
+              else
+                    S.push(x);
 	            
 	cout<<(S.empty()?"YES":"NO");
 	return 0;
