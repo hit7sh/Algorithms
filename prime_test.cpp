@@ -1,6 +1,6 @@
 #include<iostream>
 using namespace std;
-usign ll=long long;
+using ll=long long;
 
 bool prime(ll n) { 
   if(n < 2) 
@@ -16,6 +16,6 @@ bool prime(ll n) {
 }
 int main()
 {
-  cout << prime(7LL);
+  cout << prime(907);
   return 0;
 }
