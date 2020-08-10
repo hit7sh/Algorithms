@@ -1,15 +1,6 @@
-#include<bits/stdc++.h>
-#include<stdio.h>
+#include<iostream.h>
 #define ll long long
-#define eb(n) emplace_back(n)
-#define debug(x) cout<<"#x"<<" is "<<x<<endl
-#define INF 10000000000
-#define mod 1000000007
-#define endl "\n"
-#define max(a,b) ((a>b)?(a):(b))
-#define min(a,b) ((a<b)?(a):(b))
 #define fo(i,n) for(i=0;i<n;i++)
-#define f1(i,n) for(i=1;i<=n;i++)
 using namespace std;
 /**
 This method sort a string in O(n) time.
