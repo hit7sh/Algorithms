@@ -1,0 +1,6 @@
+    vi nm(n+1);
+		f1(i, n)
+			cin >> nm[i];
+		
+		n = unique(nm.begin(), nm.end())-nm.begin();
+		nm.resize(n);
