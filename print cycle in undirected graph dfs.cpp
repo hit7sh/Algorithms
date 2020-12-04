@@ -10,7 +10,7 @@ using namespace std;
 using vi = vector<int>;
 const int mod = 1e9+7,mxN = 1e5+5;
 
-int i, n, x, endnode, start;
+int i, n, x, endnode;
 vi adj[mxN];
 int vis[mxN];
 int prv[mxN];
@@ -27,7 +27,7 @@ bool dfs(int node, int par)
 				return true;
 		}
 		else if(child!=par)
-			{prv[child]=node,endnode=par, start=child;return true;}
+			{prv[child]=node,endnode=par;return true;}
 	}
 	return false;
 }
@@ -40,9 +40,6 @@ void solve(){
 	f0(i, n)
 		cin >> u >> v, u--, v--, adj[u].PB(v), adj[v].PB(u);
 	dfs(0, -1);
-	f0(i, n)
-		cout << prv[i] << ' ';
-	cout << endnode << start << '\n';
 	vi cycle;
 	while(true){
 		cycle.PB(endnode);
