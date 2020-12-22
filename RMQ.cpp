@@ -1,5 +1,5 @@
 template<typename T, bool maximum_mode = false>
-struct RMQ {
+struct RMQ {                // based on 1 indexing, passed array is 0 indexed tho
     int n = 0;
     vector<T> values;
     vector<vector<int>> range_low;
