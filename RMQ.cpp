@@ -1,5 +1,5 @@
 template<typename T, bool maximum_mode = false>
-struct RMQ {                // based on 1 indexing, passed array is 0 indexed tho
+struct RMQ {                // based on 0 indexing, passed array is 0 indexed
     int n = 0;
     vector<T> values;
     vector<vector<int>> range_low;
@@ -42,8 +42,10 @@ struct RMQ {                // based on 1 indexing, passed array is 0 indexed th
         return better_index(range_low[level][a], range_low[level][b - (1 << level)]);
     }
  
-    T query_value(int a, int b) const {
+    T qry(int a, int b) const { // qry[a, b] inclusive
+    	b++;
+        if (a == b)
+            return values[a];
         return values[query_index(a, b)];
     }
 };
- 
