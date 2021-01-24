@@ -1,14 +1,14 @@
 vector<vector<long long >> now = {{1, 0, 0},                         // vi pt = {x,
-									                {0, 1, 0},   // => Identity matrix             y,
-									                {0, 0, 1}};                        //          1};
+				  {0, 1, 0},   // => Identity matrix             y,
+				  {0, 0, 1}};                        //          1};
 
 	vector<vector<long long >> clockwise = {{0, 1, 0}, 
-										                      {-1, 0, 0}, // To rotate point clockwise 
-										                      {0, 0, 1}};
+					      {-1, 0, 0}, // To rotate point clockwise 
+					      {0, 0, 1}};
 
   vector<vector<long long >> anticlockwise = {{0, -1, 0}, 
-  							  				                    {1, 0, 0},  // rotate anticlockwise
-  							  				                    {0, 0, 1}};
+					      {1, 0, 0},  // rotate anticlockwise
+					     {0, 0, 1}};
 
   vector<vector<long long >> reflectx = {{-1, 0, 2*x}, 
                                          {0, 1, 0},  // reflection along y = x
