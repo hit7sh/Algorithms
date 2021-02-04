@@ -1,31 +1,42 @@
-void solve() {	
-	ll i, j, n, m, u, v, w;
-	cin >> n >> m;
-	vector<vector<pair<ll, ll>>> g(n+1);
-	vl vis(n+1), dist(n+1);
-	dist[1] = 0; // source
+#include<bits/stdc++.h>
+using namespace std;
 
-	f1(i, m) {
+ostream& operator<<(ostream& ot, vector<int>& v) { for (int& x: v) ot << x << ' '; return ot; }
+void solve() {	
+	int m, n, u, v, w;
+	cin >> n >> m;
+	vector<vector<pair<int, int>>> adj(n);
+
+	while (m--) {
 		cin >> u >> v >> w;
-		g[u].PB({v, w});
-		// g[v].PB({u, w});
+		--u, --v;
+		adj[u].emplace_back(v, w);
+		adj[v].emplace_back(u, w);
 	}
 
-	priority_queue<pair<ll, ll>, vector<pair<ll, ll>>, greater<pair<ll, ll>>> q;
-	q.push({0, 1});
- 
-	while (sz(q)) {
-		auto x = q.top(); q.pop();
-		ll p = x.S;
+	int src;
+	cin >> src;
+	--src;
+
+	vector<int> vis(n), dist(n, -1);
+	priority_queue<pair<int, int>, vector<pair<int, int>>, greater<pair<int, int>>> pq;
+	pq.emplace(0, src); // (dist, vertex)
+
+
+	while (!pq.empty()) {
+		auto [pd, p] = pq.top(); 
+		pq.pop();
+
 		if (vis[p])
 			continue;
- 		dist[p] = x.F;
+
 		vis[p] = 1;
- 
-		for (auto& [c, d] : g[p]) {	
-				q.push({dist[p] + d, c});
-			}
+		dist[p] = pd;
+
+		for (auto& [ch, cw] : adj[p]) {
+			pq.emplace(dist[p] + cw, ch);
+		}
 	}
-	dist.erase(dist.begin());
+
 	print(dist);
 }
