@@ -1,7 +1,9 @@
 #include<bits/stdc++.h>
 using namespace std;
 
+void print(vector<int>& v) { cout << v; }
 ostream& operator<<(ostream& ot, vector<int>& v) { for (int& x: v) ot << x << ' '; return ot; }
+
 void solve() {	
 	int m, n, u, v, w;
 	cin >> n >> m;
