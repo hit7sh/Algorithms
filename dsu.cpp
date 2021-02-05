@@ -3,23 +3,32 @@ using namespace std;
 
 class dsu{
 public:
-	vector<int>p;
+	vector<int>p, siz;
 	int n;
-	dsu(int _n):n(_n){
+	dsu(int _n):n(_n) {
 		p.resize(n+1);
+		siz.resize(n+1, 1);
 		iota(p.begin(), p.end(), 0);
 	}
-	inline int get(int x){
+
+	inline int get(int x) {
 		return (x==p[x]?x:(p[x]=get(p[x])));
 	}
-	inline bool unite(int x, int y){
+
+	inline bool unite(int x, int y) {
 		x=get(x);
 		y=get(y);
-		if(x!=y){
-			p[x]=y;
-			return true;
-		}
-		return false;
+
+		if (x == y)
+			return false;
+
+		if (siz[x] >= siz[y])
+			swap(x, y);
+
+		siz[y] += siz[x];
+		p[x] = y;
+		return true;
+
 	}
 };
 
