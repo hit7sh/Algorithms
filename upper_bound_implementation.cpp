@@ -1,5 +1,5 @@
 int upper_bound_implementation(vi& A, int v) {
-	// returns n if no lowerbound exists otherwise the indexl
+	// returns n if no upperbound exists otherwise the indexl
 	int n = (int) A.size(), i;
 	int L = 0, R = n, M;
 
