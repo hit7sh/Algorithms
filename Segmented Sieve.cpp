@@ -1,7 +1,7 @@
 #include<bits/stdc++.h>
 using namespace std;
 
-vector<int64_t> segmentedSieve(int64_t L, int64_t R) {
+vector<int64_t> segmentedSieve(int64_t L, int64_t R) { // R - L + 1 <= 1e7
     int64_t i, j;
     vector<int64_t> P;
     vector<bool> isPrime(R - L + 1, true);
