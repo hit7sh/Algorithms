@@ -38,12 +38,12 @@ struct RMQ {                // based on 0 indexing, passed array is 0 indexed
     // Note: breaks ties by choosing the largest index.
     int query_index(int a, int b) const {
         assert(0 <= a && a < b && b <= n);
-        int level = largest_bit(b - a);
-        return better_index(range_low[level][a], range_low[level][b - (1 << level)]);
+        int level = 31 - __builtin_clz(b - a + 1);
+        return better_index(range_low[level][a], range_low[level][b - (1 << level) + 1]);
     }
  
     T qry(int a, int b) const { // qry[a, b] inclusive
-    	b++;
+      if (b < a) swap(a, b);
         if (a == b)
             return values[a];
         return values[query_index(a, b)];
