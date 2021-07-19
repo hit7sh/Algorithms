@@ -1,13 +1,10 @@
-vector<vector<int>> kosaraju() {
-  int n, m;
-  cin >> n >> m;
+vector<vector<int>> solve(int n, vector<pair<int, int>>& edges) { // 0 indexed
+  int m;
+  m = edges.size();
   vector<vector<int>> g(n), rg(n), SCC;
   vector<int> self;
  
-  for (int i = 0; i < m; i++) {
-    int x, y;
-    cin >> x >> y;
-    --x, --y;
+  for (auto [x, y] : edges) {
     if (x == y) self.push_back(x);
     g[x].push_back(y);
     rg[y].push_back(x);
@@ -26,7 +23,7 @@ vector<vector<int>> kosaraju() {
     if (!vis[i]) dfs_topsort(i);
     if (i == 0) r = vis;
   }
-  
+
   reverse(toposort.begin(), toposort.end());
   vis = vector<int>(n, 0);
  
