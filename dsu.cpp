@@ -14,7 +14,11 @@ public:
 	inline int get(int x) {
 		return (x==p[x]?x:(p[x]=get(p[x])));
 	}
-
+	
+	inline int getsize(int x) {
+    		return siz[get(x)];
+  	}
+	
 	inline bool unite(int x, int y) {
 		x=get(x);
 		y=get(y);
