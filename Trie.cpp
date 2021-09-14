@@ -1,13 +1,17 @@
 #include<bits/stdc++.h>
 using namespace std;
 
+struct node{
+    unordered_map<char, node*>M;
+    bool end;
+};
+
 class Trie {
 public:
-    struct node{
-        unordered_map<char, node*>M;
-        bool end;
-    } *root;
-
+    node* root;
+    Trie() {
+        root = newnode();
+    }
     node* newnode(){
         node *temp = new node;
         return (temp->end = false, temp);
@@ -16,7 +20,7 @@ public:
     void insert(string st){
         node *t = root = (root == nullptr?newnode():root);
         for(char x:st){
-            if(t->M.find(x)==t->M.end())
+            if(t->M.find(x) == t->M.end())
                 t->M[x] = newnode();
             t = t->M[x];
         }
