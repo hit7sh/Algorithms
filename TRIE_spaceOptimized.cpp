@@ -1,10 +1,12 @@
+#include<bits/stdc++.h>
+using namespace std;
+
 class Trie {
 public:
-    struct trie{
-        unordered_map<char, trie*>M;
+    struct node{
+        unordered_map<char, node*>M;
         bool end;
     } *root;
-    typedef trie node;
 
     node* newnode(){
         node *temp = new node;
