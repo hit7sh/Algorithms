@@ -1,4 +1,4 @@
-vector<vector<int>> solve(int n, vector<pair<int, int>>& edges) { // 0 indexed
+vector<vector<int>> kosaraju(int n, vector<pair<int, int>>& edges) { // 0 indexed
   int m;
   m = edges.size();
   vector<vector<int>> g(n), rg(n), SCC;
@@ -9,7 +9,7 @@ vector<vector<int>> solve(int n, vector<pair<int, int>>& edges) { // 0 indexed
     g[x].push_back(y);
     rg[y].push_back(x);
   }
-  SCC.push_back(self);
+  if (self.size() > 0) SCC.push_back(self);
   vector<int> r(n), vis(n), ans(n), toposort, C;
  
   function<void(int)> dfs_topsort = [&](int u) {
