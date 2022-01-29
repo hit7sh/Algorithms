@@ -1,4 +1,5 @@
 static struct FastInput {
+  // __int128 -> (-1e38 to +1e38)
   static constexpr int BUF_SIZE = 1 << 20;
   char buf[BUF_SIZE];
   size_t chars_read = 0;
