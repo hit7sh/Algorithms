@@ -26,3 +26,17 @@ bool DFS(vvi& adj, int v, vi &vis, vector<int> &color)
  
     return true;
 }
+
+
+// Alternate:
+bool bad;
+vector<int> col(N, -1);
+void dfs(int v, int c){
+	col[v] = c;
+	++cnt[c];
+	for(auto to : g[v]){
+		if(col[to] == -1) dfs(to, 1 - c);
+		if((col[v] ^ col[to]) == 0)
+			bad = true;
+	}
+}
